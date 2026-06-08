@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class RobotTelemetry {
+    public static void main(String[] args) {
+        int ticksPerMeter = 500; 
+        
+        System.out.println("=== ROUTE CORRECTION SYSTEM - COBRA KAI ===");
+        System.out.print("Enter current encoder ticks: ");
+        
+        Scanner keyboard = new Scanner(System.in);
+        int currentTicks = keyboard.nextInt();
+        
+        double metersTraveled = (double) currentTicks / ticksPerMeter;
+        
+        if (metersTraveled > 3) {
+            System.out.println("Warning! You are going out of bounds.");
+        } else {
+            System.out.println("Safe route. Robot is within the game zone.");
+        }
+        
+        System.out.println("Meters traveled: " + metersTraveled);
+    }
+}
